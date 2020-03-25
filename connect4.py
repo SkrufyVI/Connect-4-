@@ -1,7 +1,7 @@
 
 def check_win_by_diag(board, piece):
 
-    # Need to find a way to check for a diagonal win
+    # WIP: Need to write a function that checks for a diagonal win
 
 def initialise_board():
     board = [['*' for i in range(7)] for j in range(6)]
