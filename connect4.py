@@ -1,16 +1,13 @@
-
-def check_win_by_diag(board, piece):
-
-    # WIP: Need to write a function that checks for a diagonal win
+# Connect 4 Game
 
 def initialise_board():
     board = [['*' for i in range(7)] for j in range(6)]
     return board
 
+# Function to make the board pretty:
+
 def print_board(board):
-    
-    # Makes the board pretty 
-    
+      
     index = ['0', '1', '2', '3', '4', '5', '6']
     l = "  " + "   ".join(index) + " "
     print(l)
@@ -22,9 +19,9 @@ def print_board(board):
             l = "| " + " | ".join(board[i]).replace("*", " ") + " |"
         print(l)
 
-def place_piece(board, piece, index):
+# Function to insert a piece into the board, if possible:
 
-    #Inserts a piece into the board, if possible
+def place_piece(board, piece, index):
 
     if board[0][index] != '*':
         #Illegal move
@@ -38,9 +35,10 @@ def place_piece(board, piece, index):
     board[col-1][index] = piece
     return 1
 
+# Function to check for horizontal win:
+
 def check_row_win(board, piece):
     
-    # Checking for win horizontally
     
     for row in board:
         for slot in row:
@@ -53,13 +51,13 @@ def check_row_win(board, piece):
 
     return 0
 
-def check_win(board, piece):
+# Function check for a vertical win:
+# A vertical win is just a horizontal win... transpose the board
 
-    #Checks if a piece has won a game, usually called after a piece has been placed
+def check_win(board, piece):
 
     if check_row_win(board, piece) == 1:
         return 1
-    # A vertical win is just a horizontal win, transpose the board and run the check
     v_board = [list(i) for i in zip(*board)]
     if check_row_win(v_board, piece) == 1:
         return 1
@@ -74,11 +72,21 @@ def test_horizontal(game_board):
         d = place_piece(game_board, '0', i)
     return check_win(game_board, '0')
 
-#Play the Game
 
+# WIP: WRITE THE FUNCTION THAT CHECKS FOR DIAGONAL WIN. 
+    
+def check_win_by_diag(board, piece):
+    # WIP
+
+
+#To play the game: 
+
+'''
 game_board = initialise_board()
 print_board(game_board)
 place_piece(game_board, 'X', 3)
 print_board(game_board)
 place_piece(game_board, 'O', 3)
 print_board(game_board)
+etc, etc.
+'''
